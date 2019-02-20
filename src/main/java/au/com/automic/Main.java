@@ -39,7 +39,7 @@ public class Main {
 		sp.add(Tour.BC);
 		sp.add(Tour.BC);
 		sp.add(Tour.BC);
-		sp.add(Tour.BC);
+		sp.add(Tour.OH);
 		System.out.println(sp.total());
 	}
 }
