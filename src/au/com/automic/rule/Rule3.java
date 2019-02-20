@@ -5,7 +5,6 @@ import java.util.List;
 
 import au.com.automic.Rule;
 import au.com.automic.Tour;
-import au.com.automic.TourId;
 
 /**
  * Rule 3: Sydney Bridge Climb bulk discount: the price will drop to $20, if someone buys more than 4
@@ -16,18 +15,24 @@ public class Rule3 implements Rule {
 
 	@Override
 	public BigDecimal apply(List<Tour> tours) {
-		for (int i=0; i<5; i++) {
-			tours.remove(new Tour(TourId.BC));
+		// check the no. of Sydney Bridge Climb tickets bought
+		long cnt = tours.stream().filter(t -> t.equals(Tour.BC)).count();
+		
+		for (int i=0; i<cnt; i++) {
+			tours.remove(Tour.BC);
 		}
-		return TourId.BC.getPrice().subtract(new BigDecimal(20)).multiply(new BigDecimal(5));
+		return Tour.BC.getPrice().subtract(new BigDecimal(20)).multiply(new BigDecimal(cnt));
 	}
 
 	@Override
 	public BigDecimal checkSavedAmount(List<Tour> tours) {
+		// check the no. of Sydney Bridge Climb tickets bought
+		long cnt = tours.stream().filter(t -> t.equals(Tour.BC)).count();
+		
 		// applicable if more than 5 tickets
-		if (tours.stream().filter(t -> t.getId().equals(TourId.BC)).count() > 4) {
-			// the saved amount is 5 x (Sydney Bridge Climb - 20)
-			return (new BigDecimal(20)).multiply(new BigDecimal(5));	
+		if (cnt > 4) {
+			// the saved amount is [no. of tickets bought] x 20
+			return (new BigDecimal(20)).multiply(new BigDecimal(cnt));	
 		}
 		
 		// return null if not applicable

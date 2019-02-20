@@ -1,38 +1,24 @@
 package au.com.automic;
 
-/**
- * Represents a tour enrolled.
- * 
- * @author Kelvin Ho
- *
- */
-public class Tour {
-	private TourId id;
-	
-	public Tour(TourId id) {
-		this.id = id;
-	}
-	
-	public TourId getId() {
-		return id;
-	}
-	public void setId(TourId id) {
-		this.id = id;
-	}
-	
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Tour))
-			return false;
-		
-		Tour that = (Tour)obj;
-		
-		if (this.getId().equals(that.getId())) {
-			return true;
-		}
-		return false;
-		
-	}
+import java.math.BigDecimal;
 
+public enum Tour {
+	
+	OH(300, "Opera house tour"), BC(110,"Sydney Bridge Climb"), SK(30, "Sydney Sky Tower");
+	
+	private final BigDecimal price;
+	private final String name;
+	
+	private Tour(int price, String name) {
+		this.price = new BigDecimal(price);
+		this.name = name;
+	}
+	
+	public BigDecimal getPrice() {
+		return price;
+	}
+	
+	public String getName() {
+		return name;
+	}
 }

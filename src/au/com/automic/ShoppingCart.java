@@ -59,7 +59,7 @@ public class ShoppingCart {
 		
 		// calculate the remaining tours
 		for (Tour tour: tours) {
-			total = total.add(tour.getId().getPrice());
+			total = total.add(tour.getPrice());
 		}
 
 		return total;

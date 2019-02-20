@@ -21,24 +21,25 @@ public class Main {
 		rules.add(new Rule3());
 		
 		ShoppingCart sp = new ShoppingCart(rules);
-		sp.add(new Tour(TourId.OH));
-		sp.add(new Tour(TourId.OH));
-		sp.add(new Tour(TourId.OH));
-		sp.add(new Tour(TourId.BC));
+		sp.add(Tour.OH);
+		sp.add(Tour.OH);
+		sp.add(Tour.OH);
+		sp.add(Tour.BC);
 		System.out.println(sp.total());
 		
 		sp = new ShoppingCart(rules);
-		sp.add(new Tour(TourId.OH));
-		sp.add(new Tour(TourId.SK));
+		sp.add(Tour.OH);
+		sp.add(Tour.OH);
+		sp.add(Tour.SK);
 		System.out.println(sp.total());
 		
 		sp = new ShoppingCart(rules);
-		sp.add(new Tour(TourId.BC));
-		sp.add(new Tour(TourId.BC));
-		sp.add(new Tour(TourId.BC));
-		sp.add(new Tour(TourId.BC));
-		sp.add(new Tour(TourId.BC));
-		sp.add(new Tour(TourId.OH));
+		sp.add(Tour.BC);
+		sp.add(Tour.BC);
+		sp.add(Tour.BC);
+		sp.add(Tour.BC);
+		sp.add(Tour.BC);
+		sp.add(Tour.BC);
 		System.out.println(sp.total());
 	}
 }
