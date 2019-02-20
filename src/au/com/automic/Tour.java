@@ -1,6 +1,11 @@
 package au.com.automic;
 
-
+/**
+ * Represents a tour enrolled.
+ * 
+ * @author Kelvin Ho
+ *
+ */
 public class Tour {
 	private TourId id;
 	
